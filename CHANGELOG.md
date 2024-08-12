@@ -1,5 +1,14 @@
 # Change Log
 
+## v0.10.4 (2022-03-26)
+
+- Quick access buttons (close #47)
+- Update some dependencies
+
+## v0.10.3 (2022-02-02)
+
+- The limit of the number of articles fetched by Inoreader at a time is configurable(close #46)
+
 ## v0.10.2 (2021-09-20)
 
 - Resolve reletive URLs of audio and video

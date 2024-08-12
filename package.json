@@ -4,7 +4,7 @@
     "description": "An RSS reader embedded in Visual Studio Code",
     "license": "MIT",
     "icon": "logo.png",
-    "version": "0.10.2",
+    "version": "0.10.4",
     "publisher": "luyuhuang",
     "author": "luyuhuang",
     "homepage": "https://github.com/luyuhuang/vscode-rss.git",
@@ -82,6 +82,13 @@
                     "type": "string",
                     "default": "www.inoreader.com",
                     "description": "Domain of Inoreader"
+                },
+                "rss.inoreader-limit": {
+                    "type": "integer",
+                    "default": 100,
+                    "minimum": 1,
+                    "maximum": 1000,
+                    "description": "Limit of the number of articles fetched by Inoreader at a time"
                 }
             }
         },
@@ -140,11 +147,13 @@
             },
             {
                 "command": "rss.open-link",
-                "title": "Open link"
+                "title": "Open link",
+                "icon": "$(globe)"
             },
             {
                 "command": "rss.mark-read",
-                "title": "Mark as read"
+                "title": "Mark as read",
+                "icon": "$(check)"
             },
             {
                 "command": "rss.mark-unread",
@@ -171,7 +180,8 @@
             },
             {
                 "command": "rss.add-to-favorites",
-                "title": "Add to favorites"
+                "title": "Add to favorites",
+                "icon": "$(star-empty)"
             },
             {
                 "command": "rss.remove-from-favorites",
@@ -402,11 +412,13 @@
                 },
                 {
                     "command": "rss.open-link",
-                    "when": "viewItem == article"
+                    "when": "viewItem == article",
+                    "group": "inline"
                 },
                 {
                     "command": "rss.mark-read",
-                    "when": "view == rss-articles"
+                    "when": "view == rss-articles",
+                    "group": "inline"
                 },
                 {
                     "command": "rss.mark-unread",
@@ -414,7 +426,8 @@
                 },
                 {
                     "command": "rss.add-to-favorites",
-                    "when": "view == rss-articles"
+                    "when": "view == rss-articles",
+                    "group": "inline"
                 },
                 {
                     "command": "rss.remove-from-favorites",
@@ -472,14 +485,14 @@
         "ts-loader": "^7.0.5",
         "typescript": "^4.2.4",
         "vscode-test": "^1.3.0",
-        "webpack": "^5.27.0",
+        "webpack": "^5.76.0",
         "webpack-cli": "^4.8.0"
     },
     "dependencies": {
         "cheerio": "1.0.0-rc.10",
-        "fast-xml-parser": "^3.16.0",
+        "fast-xml-parser": "^4.4.1",
         "fs-extra": "^9.0.1",
-        "got": "10.6.0",
+        "got": "12.5.3",
         "he": "^1.2.0",
         "iconv-lite": "^0.5.1",
         "uuid": "^8.0.0"
